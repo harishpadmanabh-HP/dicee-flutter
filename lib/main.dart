@@ -68,6 +68,8 @@ class _DicePageState extends State<DicePage> {
 
   void rollBothDice() {
     setState(() {
+      //setState used to update changes to ui
+
       leftDiceNumber =
           Random().nextInt(6) + 1; //random generates 0 to 5 .so adding 1
       rightDiceNumber =
