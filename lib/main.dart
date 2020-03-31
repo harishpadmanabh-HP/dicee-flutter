@@ -42,18 +42,7 @@ class _DicePageState extends State<DicePage> {
                 child: Image.asset('images/dice$leftDiceNumber.png'),
                 onPressed: () {
                   //on click
-                  setState(() {
-                    //changing both dice when any one clicked
-                    //without this, ui wont update
-                    //call again build method and update ui changes
-                    leftDiceNumber = Random().nextInt(6) +
-                        1; //random generates 0 to 5 .so adding 1
-                    rightDiceNumber = Random().nextInt(6) +
-                        1; //random generates 0 to 5 .so adding 1
-
-                    print('Left Random number generatd = $leftDiceNumber');
-                  });
-                  print('left button pressed');
+                  rollBothDice();
                 },
               ),
             ),
@@ -67,15 +56,7 @@ class _DicePageState extends State<DicePage> {
                 onPressed: () {
                   print('right button pressed');
 
-                  setState(() {
-                    //changing both dice when any one clicked
-
-                    leftDiceNumber = Random().nextInt(6) +
-                        1; //random generates 0 to 5 .so adding 1
-                    rightDiceNumber = Random().nextInt(6) +
-                        1; //random generates 0 to 5 .so adding 1
-                    print('Right Random number generatd = $rightDiceNumber');
-                  });
+                  rollBothDice();
                 },
               ),
             ),
@@ -83,5 +64,14 @@ class _DicePageState extends State<DicePage> {
         ],
       ),
     );
+  }
+
+  void rollBothDice() {
+    setState(() {
+      leftDiceNumber =
+          Random().nextInt(6) + 1; //random generates 0 to 5 .so adding 1
+      rightDiceNumber =
+          Random().nextInt(6) + 1; //random generates 0 to 5 .so adding 1
+    });
   }
 }
